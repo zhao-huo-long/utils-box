@@ -1,4 +1,1 @@
-
-
-
-
+import { debounce } from './core'
