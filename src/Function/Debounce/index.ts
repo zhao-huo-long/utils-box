@@ -1,9 +1,11 @@
-
 type Func = (...args: any[]) => any
 
+/**
+ * debounce
+*/
 const debounce = function<T extends Func>(cb: T, delayTime = 0 ) {
   let preTimeid: number | undefined = undefined
-  return function(...args: Parameters<T>){
+  return function(...args: Parameters<T>): void{
     if(preTimeid) clearTimeout(preTimeid)
     preTimeid = setTimeout(()=> {
       preTimeid = undefined
@@ -11,6 +13,5 @@ const debounce = function<T extends Func>(cb: T, delayTime = 0 ) {
     }, delayTime)
   }
 }
-
 
 export default debounce
