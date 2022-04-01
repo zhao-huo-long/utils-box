@@ -1,19 +1,13 @@
 {
-  "include": ["src/**/*"],
   "compilerOptions": {
-    "target": "ES6",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
-    "checkJs": false,
-    "allowJs": true,
-    "charset": "utf-8",
-    "module": "UMD",
-    "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
     "esModuleInterop": true,
-    "declaration": true,
-    "pretty": true,
-    "moduleResolution": "Node"
+    "types": ["jest"],
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true
   }
 }

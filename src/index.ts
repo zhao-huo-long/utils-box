@@ -1,1 +1,1 @@
-import { debounce } from './core'
+export { default as Foo } from './Foo';

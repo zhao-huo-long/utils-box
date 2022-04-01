@@ -1,36 +1,42 @@
 {
+  "private": true,
   "name": "utils-box",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "npm run lint",
-    "build": "tsc",
-    "prepare": "husky install"
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "prepublishOnly": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhao-huo-long/utils-box.git"
+  "module": "es/index.js",
+  "typings": "es/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zhao-huo-long/utils-box.git/issues"
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
   },
-  "homepage": "https://github.com/zhao-huo-long/utils-box.git#readme",
   "devDependencies": {
-    "@babel/types": "^7.16.0",
-    "@types/eslint": "^8.2.1",
-    "@types/eslint-scope": "^3.7.1",
-    "@types/node": "^16.11.12",
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
-    "eslint": "^8.4.1",
-    "husky": "^7.0.4",
-    "typescript": "^4.5.4"
-  },
-  "dependencies": {
-    "assert-tiny": "^1.0.2"
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.3",
+    "@umijs/fabric": "^2.8.1",
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.1.0",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.1",
+    "yorkie": "^2.0.0"
   }
 }
