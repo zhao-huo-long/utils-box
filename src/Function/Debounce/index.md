@@ -1,8 +1,8 @@
-### Debounce - 函数防抖
+### debounce - 函数防抖
 
 对函数进行防抖处理  
 
-### 🍔 - Useage  
+### Useage - 🥤   
 
 javascript:
 ```js
@@ -28,7 +28,7 @@ export default () => {
     <button type="button" onClick={onClick} >
       快速点击
     </button>
-    :{time}
+    <div>生效次数: {time}</div>
   </div>
 };
 ```

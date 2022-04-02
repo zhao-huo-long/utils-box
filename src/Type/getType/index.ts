@@ -1,23 +1,28 @@
 
 const typesFunc = [Array, Set, WeakSet, Map, WeakMap, Date, RegExp, Element]
 
-type ValueTypes = 'string' |
-  'number' |
-  'bigint' |
-  'boolean' |
-  'symbol' |
-  'null' |
-  'undefined' |
-  'object' |
-  'function' |
-  'array' |
-  'aet' |
-  'weakset' |
-  'map' |
-  'weakmap' |
-  'date' |
-  'regexp' |
+export const types = ['string',
+  'number',
+  'bigint',
+  'boolean',
+  'symbol',
+  'null',
+  'undefined',
+  'object',
+  'function',
+  'array',
+  'set',
+  'weakset',
+  'map',
+  'weakmap',
+  'date',
+  'regexp',
   'element'
+] as const
+
+type ArrayElement<T> = T extends readonly (infer B)[] ? B : never
+
+type ValueTypes = ArrayElement<typeof types>
 
 /**
  * @param target

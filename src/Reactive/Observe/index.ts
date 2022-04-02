@@ -21,26 +21,26 @@
  * }
  *```
  * */
-const deepObj = (data) => {
-  const rootDest = {}
-  let clonePool = [{source: data, dest: rootDest}]
-  while(clonePool.length){
-    const {source, dest} = clonePool.pop()
-    for(let key in source){
-      const value = source[key]
-      switch(typeof value){
-        case 'object':
-          dest[key] = {}
-          clonePool.push({source: value, dest: dest[key]})
-          break
-        default:
-          dest[key] = value
-          break;
-      }
-    }
-  }
-  return rootDest
-}
+// const deepObj = (data) => {
+//   const rootDest = {}
+//   let clonePool = [{source: data, dest: rootDest}]
+//   while(clonePool.length){
+//     const {source, dest} = clonePool.pop()
+//     for(let key in source){
+//       const value = source[key]
+//       switch(typeof value){
+//         case 'object':
+//           dest[key] = {}
+//           clonePool.push({source: value, dest: dest[key]})
+//           break
+//         default:
+//           dest[key] = value
+//           break;
+//       }
+//     }
+//   }
+//   return rootDest
+// }
 
 
 /**
