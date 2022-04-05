@@ -1,1 +1,3 @@
-export {  debounce  } from './Function'
+export *  from './Function'
+
+export *  from "./Object";

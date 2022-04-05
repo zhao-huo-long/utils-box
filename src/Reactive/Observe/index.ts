@@ -1,4 +1,4 @@
-
+import { getType } from '../../Type'
 
 /**
  *```js

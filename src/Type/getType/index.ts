@@ -1,26 +1,6 @@
+import { types } from '../../constant'
 
 const typesFunc = [Array, Set, WeakSet, Map, WeakMap, Date, RegExp, Element]
-
-export const types = ['string',
-  'number',
-  'bigint',
-  'boolean',
-  'symbol',
-  'null',
-  'undefined',
-  'object',
-  'function',
-  'array',
-  'set',
-  'weakset',
-  'map',
-  'weakmap',
-  'date',
-  'regexp',
-  'element'
-] as const
-
-type ArrayElement<T> = T extends readonly (infer B)[] ? B : never
 
 type ValueTypes = ArrayElement<typeof types>
 
