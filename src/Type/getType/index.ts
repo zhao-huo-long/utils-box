@@ -10,7 +10,7 @@ type ValueTypes = ArrayElement<typeof types>
 const getType = (target: unknown): ValueTypes => {
   const typeStr = typeof target
   if (typeStr === 'object') {
-    if (typeStr === null) return 'null'
+    if (target === null) return 'null'
     for (const Func of typesFunc) {
       if (target instanceof Func) {
         return Func.name.toLowerCase() as ValueTypes

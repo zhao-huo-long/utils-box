@@ -50,7 +50,6 @@ const deepClone = <T extends any> (target: T) => {
       case 'object':
         break
       default:
-
         break
     }
   }

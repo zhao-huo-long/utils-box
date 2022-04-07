@@ -20,7 +20,7 @@ getType(new Set())              /* => 'set' */
 getType(new WeakSet())          /* => 'weakset' */
 getType(new Map())              /* => 'map' */
 getType(new WeakMap())          /* => 'weakmap' */
-getType(new RegExp())           /* => 'regexp' */
+getType(new RegExp(''))         /* => 'regexp' */
 ```
 
 
