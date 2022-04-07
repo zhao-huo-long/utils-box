@@ -13,7 +13,7 @@ getType([])                     /* => 'array' */
 getType({})                     /* => 'object' */
 getType(null)                   /* => 'null' */
 getType(false)                  /* => 'boolean' */
-getType()                       /* => 'undefined' */
+getType(undefined)              /* => 'undefined' */
 getType(0)                      /* => 'number' */
 getType(()=>{})                 /* => 'function' */
 getType(new Set())              /* => 'set' */

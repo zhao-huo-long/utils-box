@@ -9,7 +9,6 @@ test('getType', () => {
   expect(getType(null)).toBe('null')
   expect(getType(false)).toBe('boolean')
   expect(getType(undefined)).toBe('undefined')
-  expect(getType(0)).toBe('number')
   expect(getType(()=>{})).toBe('function')
   expect(getType(new Set())).toBe('set')
   expect(getType(new WeakSet())).toBe('weakset')
