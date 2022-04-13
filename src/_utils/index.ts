@@ -20,9 +20,4 @@ const ObjectForEach = (data: any, cb: (...args: any[]) => void) => {
   }
 }
 
-ObjectForEach({ a: ['hello', 'sss', { name: 'test' }] }, ((a, b, c) => {
-  console.log(a, b, c)
-}))
-
-
 export default ObjectForEach
