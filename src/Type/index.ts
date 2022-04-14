@@ -1,2 +1,3 @@
+export { default as getType } from './GetType';
 
-export { default as getType } from './getType'
+export { default as isPrimitive } from './IsPrimitive';
