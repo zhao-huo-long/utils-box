@@ -1,5 +1,32 @@
 ### ForEach
 
+javascript:
+
+```js
+import { forEach } from 'utils-box';
+
+const data = {
+  name: 'tom',
+  arr: [
+    'hello',
+    9,
+    false,
+    'bar',
+    {
+      child: 'utils-box is good',
+      o: ['s'],
+    },
+  ],
+  myset: new Set([{ a: 1, b: 'bbll' }]),
+  myMap: new Map([['key', 'value']]),
+  your: null,
+};
+
+forEach(data, (value, keyPath, isLeaf) => {
+  console.log(value, keyPath, isLeaf);
+});
+```
+
 ```tsx
 import React from 'react';
 import { forEach } from 'utils-box';
@@ -16,14 +43,14 @@ const data = {
       o: ['s'],
     },
   ],
+  myset: new Set([{ a: 1, b: 'bbll' }]),
+  myMap: new Map([['key', 'value']]),
   your: null,
 };
 
-forEach(data, (a, b, c) => {
-  console.log(a, b, c);
+forEach(data, (value, keyPath, isLeaf) => {
+  console.log(value, keyPath, isLeaf);
 });
 
-export default () => {
-  return <div>1</div>;
-};
+export default () => <></>;
 ```

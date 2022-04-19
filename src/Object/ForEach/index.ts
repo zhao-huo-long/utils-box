@@ -1,11 +1,23 @@
-import { isPrimitive } from '../../Type';
-// import { } from '../../constant'
+import { isIteratorType } from '../../Type';
+
 type StackItem = {
   data: any;
   keys?: string[];
 };
 
-type IcallbackFn = (item: any, key: string[], isLeaf: boolean) => void;
+const entries = {
+  value: function () {
+    const iterator = function* () {
+      for (let i in this) {
+        yield [i, this[i]];
+      }
+    }.bind(this);
+    return iterator();
+  },
+  enumerable: false,
+};
+
+type IcallbackFn = (value: any, keyPath: string[], isLeaf: boolean) => void;
 
 const ForEach = (data: any, callbackFn: IcallbackFn) => {
   const statck: StackItem[] = [
@@ -16,16 +28,23 @@ const ForEach = (data: any, callbackFn: IcallbackFn) => {
   ];
   while (statck.length) {
     const { keys = [], data } = statck.pop() ?? {};
-    const childKeys = isPrimitive(data) ? [] : Object.keys(data);
-    if (keys.length) {
-      callbackFn?.(data, keys, !childKeys.length);
+    const isIterator = isIteratorType(data);
+    if (isIterator && !data.entries) {
+      Object.defineProperty(data, 'entries', entries);
     }
-    childKeys.forEach((itemKey) => {
+    const childKeys = isIterator ? data?.entries() : [];
+    let isLeaf = true;
+    for (const [key, value] of childKeys) {
       statck.unshift({
-        data: data[itemKey],
-        keys: [...keys, itemKey],
+        data: value,
+        keys: [...keys, key],
       });
-    });
+      isLeaf = false;
+    }
+    if (keys.length) {
+      callbackFn?.(data, keys, isLeaf);
+    }
+    Reflect.deleteProperty(data, 'entries');
   }
 };
 

@@ -1,17 +1,16 @@
-
 export const primitivesType = [
-  'string',
   'number',
   'bigint',
   'boolean',
   'symbol',
   'null',
   'undefined',
-  'function'
-] as const
+] as const;
 
 export const refsType = [
+  'string',
   'object',
+  'function',
   'array',
   'set',
   'weakset',
@@ -19,10 +18,9 @@ export const refsType = [
   'weakmap',
   'date',
   'regexp',
-  'element'
-] as const
+  'element',
+] as const;
 
-export const types = [
-  ...primitivesType,
-  ...refsType
-] as const
+export const iteratorType = ['array', 'object', 'set', 'map'];
+
+export const types = [...primitivesType, ...refsType] as const;
