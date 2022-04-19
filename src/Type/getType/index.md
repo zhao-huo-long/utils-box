@@ -2,7 +2,7 @@
 
 获取传入参数的类型
 
-### Useage - 🥤
+### 代码演示 - 🥤
 
 javascript:
 
@@ -24,3 +24,21 @@ getType(new Map()); /* => 'map' */
 getType(new WeakMap()); /* => 'weakmap' */
 getType(new RegExp('')); /* => 'regexp' */
 ```
+
+### API
+
+```js
+const typeStr = getType(data);
+```
+
+#### `params`
+
+| 参数   | 说明             | 类型  |
+| ------ | ---------------- | ----- |
+| `data` | 需要获取类型的值 | `any` |
+
+#### `return`
+
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| `typeStr` | 类型字符串 | `"number" \| "bigint" \| "boolean" \| "symbol" \| "null" \| "undefined" \| "string" \| "object" \| "function" \| "array" \| "set"\| "weakset" \| "map" \| "weakmap" \| "date" \| "regexp" \| "element"` |

@@ -44,7 +44,9 @@ const ForEach = (data: any, callbackFn: IcallbackFn) => {
     if (keys.length) {
       callbackFn?.(data, keys, isLeaf);
     }
-    Reflect.deleteProperty(data, 'entries');
+    if (isIterator) {
+      Reflect.deleteProperty(data, 'entries');
+    }
   }
 };
 
